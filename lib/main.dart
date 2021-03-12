@@ -8,21 +8,57 @@ main() {
 }
 
 class _PerguntaAppState extends State<PerguntaApp> {
-  var perguntaSelecionada = 0;
+  var _perguntaSelecionada = 0;
+
+  final List<Map<String, Object>> _perguntas = [
+    {
+      'texto': 'Qual a sua cor favorita?',
+      'resposta': [
+        'Preto',
+        'Vermelho',
+        'Azul',
+        'Verde',
+      ],
+    },
+    {
+      'texto': 'Qual é seu animal favorito?',
+      'resposta': [
+        'Coelho',
+        'Cobra',
+        'Elefante',
+        'Leão',
+      ],
+    },
+    {
+      'texto': 'Qual é seu instrutor favorito?',
+      'resposta': [
+        'Murillo',
+        'Messias',
+        'Arthur',
+        'Alercio',
+      ],
+    },
+  ];
 
   void _responder() {
-    setState(() {
-      perguntaSelecionada++;
-    });
-    print('Perguta respondida');
+    if (temPerguntaSelecionada) {
+      setState(() {
+        _perguntaSelecionada++;
+      });
+    }
+
+    print(_perguntaSelecionada);
+  }
+
+  bool get temPerguntaSelecionada {
+    return _perguntaSelecionada < _perguntas.length;
   }
 
   @override
   Widget build(BuildContext context) {
-    final perguntas = [
-      'Qual a sua cor favorita?',
-      'Qual é seu animal favorito?',
-    ];
+    List<String> respostar = temPerguntaSelecionada
+        ? _perguntas[_perguntaSelecionada]['resposta']
+        : null;
 
     return MaterialApp(
       home: Scaffold(
@@ -30,14 +66,23 @@ class _PerguntaAppState extends State<PerguntaApp> {
           centerTitle: true,
           title: Text("Perguntas"),
         ),
-        body: Column(
-          children: [
-            Questao(perguntas[perguntaSelecionada]),
-            Resposta("resposta 1", _responder),
-            Resposta("resposta 2", _responder),
-            Resposta("resposta 3", _responder),
-          ],
-        ),
+        body: temPerguntaSelecionada
+            ? Column(
+                children: [
+                  Questao(_perguntas[_perguntaSelecionada]['texto']),
+                  //'...' ele pega os elementos da lsita resposta
+                  //e joga dentro da lista children.
+                  //'.map' faz uma transformação de uma
+                  // lista de para outra idependente do tipo
+                  ...respostar.map((t) => Resposta(t, _responder)).toList(),
+                ],
+              )
+            : Center(
+                child: Text(
+                  'Parabéns',
+                  style: TextStyle(fontSize: 29),
+                ),
+              ),
       ),
     );
   }
