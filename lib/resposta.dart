@@ -13,7 +13,7 @@ class Resposta extends StatelessWidget {
       width: double.infinity,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          primary: Colors.red, // background
+          primary: Colors.lightBlueAccent, // background
           onPrimary: Colors.white, // foreground
         ),
         child: Text("$resposta"),
