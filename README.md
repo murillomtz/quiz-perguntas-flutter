@@ -1,17 +1,21 @@
-# quiz_flutter
+# Quiz de Perguntas Flutter
 
-A new Flutter project.
+Aplicativo mobile de perguntas e respostas com pontuação. O questionário de exemplo aborda preferências pessoais, como cor e animal favoritos; cada alternativa soma pontos e o resultado é apresentado ao fim. É um projeto didático de Flutter, não um quiz de conhecimentos sobre um assunto específico.
 
-## Getting Started
+## Tecnologias principais
 
-This project is a starting point for a Flutter application.
+- Dart
+- Flutter
+- Material Design (interface Flutter)
+- Android e iOS (estrutura configurada no repositório)
 
-A few resources to get you started if this is your first Flutter project:
+## Executar
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Com o Flutter SDK instalado:
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-"# quiz-perguntas-flutter" 
+```bash
+flutter pub get
+flutter run
+```
+
+O projeto começa em `lib/main.dart`; as perguntas, respostas e pontuações do exemplo estão definidas no aplicativo e podem ser ajustadas ali.
