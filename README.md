@@ -43,7 +43,7 @@ O código antecede a migração para null safety. Flutter com Dart 3 exige atual
 
 ## Execução das capturas
 
-A interface foi compilada com Flutter 2.10.5 e Dart 2.16.2. Um destino web foi gerado somente na cópia local para abrir o aplicativo no navegador. O questionário completo e a tela de resultado foram executados; as imagens mostram os widgets do projeto original.
+A interface foi compilada com Flutter 2.10.5 e Dart 2.16.2, usando o renderizador CanvasKit para preservar a legibilidade das letras. Um destino web foi gerado somente na cópia local para abrir o aplicativo no navegador. O questionário completo e a tela de resultado foram executados. As duas imagens foram refeitas em formato móvel, com dimensões fixas de **390 × 844 pixels**, e mostram os widgets do projeto original.
 
 ## Relação com outros projetos
 
